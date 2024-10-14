@@ -1,0 +1,25 @@
+﻿@model MVCLibrary.Models.Entity.Author
+@{
+    ViewBag.Title = "UpdateAuthor";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+<h2>Yazar Güncelleme Sayfası</h2>
+<br />
+
+@using (Html.BeginForm("UpdateAuthor", "Author", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.AuthorID)
+    @Html.LabelFor(x => x.Name)
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Surname)
+    @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Detail)
+    @Html.TextBoxFor(x => x.Detail, new { @class = "form-control" })
+    <br />
+    <div>
+        <button class="btn btn-success">Yazarı Güncelle</button>
+    </div>
+}

@@ -1,8 +1,8 @@
 ﻿@*@using MVCLibrary.Models.Entity
-    @model List<Category>*@
+    @model List<Author>*@
 @using PagedList
 @using PagedList.Mvc
-@model PagedList.IPagedList<MVCLibrary.Models.Entity.Category>
+@model PagedList.IPagedList<MVCLibrary.Models.Entity.Author>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -11,11 +11,12 @@
     Layout = "~/Views/Shared/_DefaultLayout.cshtml";
 }
 
-<h2>Kategoriler</h2>
-
+<h2>Yazar Listesi</h2>
+<br />
 <table class="table table-bordered">
     <tr>
-        <th>Kategori Adı</th>
+        <th>Yazar Adı</th>
+        <th>Detaylar</th>
         <th>Sil</th>
         <th>Güncelle</th>
     </tr>
@@ -23,21 +24,20 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>@item.Name</td>
-            @*<td><a href="/Category/DeleteCategory/@item.CategoryID" class="btn btn-danger">Sil</a></td>*@
+            <td>@item.Name @item.Surname</td>
+            <td>@item.Detail</td>
 
-            <td><a href="#" class="btn btn-danger" onclick="confirmDelete('@Url.Action("DeleteCategory", new { id = item.CategoryID })')">Sil</a></td>
-            <td><a href="/Category/UpdateCategory/@item.CategoryID" class="btn btn-warning">Güncelle</a></td>
+            @*<td>@Html.ActionLink("Sil", "DeleteAuthor", new { id = item.AuthorID }, new { @class = "Modal", onclick = "return confirm('Silmek İstiyor Musunuz?')" }) </td>*@
+            @*<td><a href="/Author/DeleteAuthor/@item.AuthorID" class="btn btn-danger">Sil</a></td>*@
+
+            <td><a href="#" class="btn btn-danger" onclick="confirmDelete('@Url.Action("DeleteAuthor", new { id = item.AuthorID })')">Sil</a><td>
+            <td><a href="/Author/UpdateAuthor/@item.AuthorID" class="btn btn-warning">Güncelle</a></td>
         </tr>
     }
 
 </table>
-@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions
-{
-    //LiElementClasses = new List<string>
-    //{ "page-link"}
-})
-<a href="/Category/AddCategory/" class="btn btn-primary">Yeni Kategori Ekle</a>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions { })
+<a href="/Author/AddAuthor" class="btn btn-primary">Yeni Yazar Ekle</a>
 
 <script type="text/javascript">
     function confirmDelete(deleteUrl) {

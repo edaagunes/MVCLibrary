@@ -4,15 +4,17 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MVCLibrary.Models.Entity;
+using PagedList;
+using PagedList.Mvc;
 
 namespace MVCLibrary.Controllers
 {
     public class CategoryController : Controller
     {
         LibraryDbEntities context= new LibraryDbEntities();
-        public ActionResult Index()
+        public ActionResult Index(int page=1)
         {
-            var values=context.Category.ToList();
+            var values=context.Category.ToList().ToPagedList(page, 5);
             return View(values);
         }
 
