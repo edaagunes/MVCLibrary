@@ -1,0 +1,132 @@
+﻿
+@{
+    Layout = null;
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>LIBRARY</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+
+
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 240px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            overflow-y: auto; /* Kaydırma etkin */
+            padding-top: 16px;
+        }
+
+            .sidebar a {
+                padding: 10px 14px 10px 10px;
+                text-decoration: none;
+                font-size: 18px;
+                color: white;
+                display: block;
+            }
+
+                .sidebar a:hover {
+                    color: darkslateblue;
+                }
+
+        .main {
+            margin-left: 240px;
+            padding: 0px 10px;
+        }
+
+        /* Kaydırma çubuğunu ince yap */
+        .sidebar::-webkit-scrollbar {
+            width: 6px; /* Kaydırma çubuğu genişliği */
+        }
+
+        /* Kaydırma çubuğu rayı */
+        .sidebar::-webkit-scrollbar-track {
+            background: #f1f1f1; /* Ray arka planı */
+            border-radius: 10px;
+        }
+
+        /* Kaydırma çubuğu */
+        .sidebar::-webkit-scrollbar-thumb {
+            background: darkslateblue; /* Kaydırma çubuğu rengi */
+            border-radius: 10px; /* Yuvarlatılmış köşeler */
+        }
+
+            /* Kaydırma çubuğuna hover yapıldığında */
+            .sidebar::-webkit-scrollbar-thumb:hover {
+                background: slateblue; /* Renk değişikliği */
+            }
+
+        @@media screen and (max-height: 450px) {
+            .sidebar {
+                padding-top: 15px;
+            }
+
+                .sidebar a {
+                    font-size: 18px;
+                }
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <div class="sidebar">
+        <a href="/Category/Index"><i class="fa fa-home"></i> &nbsp; Ana Sayfa</a>
+        <a href="#"><i class="fa fa-list"></i> &nbsp; Kategoriler</a>
+        <a href="#"><i class="fa fa-book"></i> &nbsp; Kitaplar</a>
+        <a href="#"><i class="fa fa-pencil"></i> &nbsp; Yazarlar</a>
+        <a href="#"><i class="fa fa-user"></i> &nbsp; Üyeler</a>
+        <a href="#"><i class="fa fa-globe"></i> &nbsp; Personeller</a>
+        <a href="#"><i class="fa fa-arrow-circle-right"></i> &nbsp; Ödünç Kitap Ver</a>
+        <a href="#"><i class="fa fa-arrow-circle-left"></i> &nbsp; Ödünç Kitap Al</a>
+        <a href="#"><i class="fa fa-arrow-circle-left"></i> &nbsp; Kasa</a>
+        <a href="#"><i class="fa fa-sort"></i> &nbsp; İstatistikler</a>
+        <a href="#"><i class="fa fa-phone"></i> &nbsp; Duyurular</a>
+        <a href="#"><i class="fa fa-dashboard"></i> &nbsp; İşlemler</a>
+        <a href="#"><i class="fa fa-cloud"></i> &nbsp; Hava Raporu</a>
+        <a href="#"><i class="fa fa-plus"></i> &nbsp; Hava Kartları</a>
+        <a href="#"><i class="fa fa-picture-o"></i> &nbsp; Galeri</a>
+        <a href="#"><i class="fa fa-bookmark"></i> &nbsp; Linq Kartlar</a>
+        <a href="#"><i class="fa fa-gift"></i> &nbsp; Vitrin</a>
+        <a href="#"><i class="fa fa-cog"></i> &nbsp; Ayarlar</a>
+        <a href="#"><i class="fa fa-phone"></i> &nbsp; Destek</a>
+        <a href="#"><i class="fa fa-remove"></i> &nbsp; Çıkış</a>
+
+    </div>
+
+
+
+    <div class="main">
+
+        @RenderBody()
+
+    </div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+﻿@model MVCLibrary.Models.Entity.Category
+@{
+    ViewBag.Title = "AddCategory";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+<br />
+<h2>Kategori Ekleme Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+    <div>
+        <label>Kategori Adı</label>
+        <input type="text" class="form-control" name="Name" />
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="Btn1">Kategori Ekle</button>
+    </div>
+</form>
