@@ -1,0 +1,43 @@
+﻿@model MVCLibrary.Models.Entity.Member
+@{
+    ViewBag.Title = "UpdateMember";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+<h2>Üye Güncelleme Sayfası</h2>
+@using (Html.BeginForm("UpdateMember", "Member", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.MemberID)
+        <br />
+        <label>Üye Adı</label>
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+        <br />
+        <label>Üye Soyadı</label>
+        @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
+        <br />
+        <label>Mail Adresi</label>
+        @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+        <br />
+        <label>Kullanıcı Adı</label>
+        @Html.TextBoxFor(x => x.Username, new { @class = "form-control" })
+        <br />
+        <label>Şifre</label>
+        @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+        <br />
+        <label>Fotoğraf</label>
+        @Html.TextBoxFor(x => x.Photo, new { @class = "form-control" })
+        <br />
+        <label>Telefon</label>
+        @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
+        <br />
+        <label>Okul</label>
+        @Html.TextBoxFor(x => x.School, new { @class = "form-control" })
+        <br />
+    </div>
+    <div>
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+}
+
+

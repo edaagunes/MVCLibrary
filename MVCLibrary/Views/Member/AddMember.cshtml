@@ -1,0 +1,46 @@
+﻿@model MVCLibrary.Models.Entity.Member
+@{
+    ViewBag.Title = "AddMember";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+<h2>Üye Ekleme Sayfası</h2>
+
+<form class="form-group" method="post">
+    <div style="margin-top:15px">
+        <label>Üye Adı</label>
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control " })
+    </div>
+    <div style="margin-top:15px">
+        <label>Üye Soyadı</label>
+        @Html.TextBoxFor(x => x.Surname, new { @class = "form-control " })
+    </div>
+    <div style="margin-top:15px">
+        <label>Mail Adresi</label>
+        @Html.TextBoxFor(x => x.Mail, new { @class = "form-control " })
+    </div>
+    <div style="margin-top:15px">
+        <label>Kullanıcı Adı</label>
+        @Html.TextBoxFor(x => x.Username, new { @class = "form-control " })
+    </div>
+    <div style="margin-top:15px">
+        <label>Şifre</label>
+        @Html.TextBoxFor(x => x.Password, new { @class = "form-control " })
+    </div>
+    <div style="margin-top:15px">
+        <label>Fotoğraf</label>
+        @Html.TextBoxFor(x => x.Photo, new { @class = "form-control " })
+    </div>
+    <div style="margin-top:15px">
+        <label>Telefon</label>
+        @Html.TextBoxFor(x => x.Phone, new { @class = "form-control " })
+    </div>
+    <div style="margin-top:15px">
+        <label>Okul</label>
+        @Html.TextBoxFor(x => x.School, new { @class = "form-control " })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="Btn1">Ekle</button>
+    </div>
+</form>
+
