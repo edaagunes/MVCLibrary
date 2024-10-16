@@ -1,0 +1,20 @@
+﻿@model MVCLibrary.Models.Entity.Staff
+@{
+    ViewBag.Title = "AddStaff";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+<br />
+<h2>Personel Ekleme Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+    <div>
+        <label>Personel Adı</label>
+        @Html.TextBoxFor(x=>x.Name,new {@class="form-control "})
+        @Html.ValidationMessageFor(x => x.Name, "", new {@style="color:red"})
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="Btn1">Ekle</button>
+    </div>
+</form>
+

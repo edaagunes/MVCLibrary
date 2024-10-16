@@ -11,10 +11,13 @@ namespace MVCLibrary.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Staff
     {
         public byte StaffID { get; set; }
+
+        [Required(ErrorMessage ="Personel Adý Boþ Geçilemez")]
         public string Name { get; set; }
     }
 }
