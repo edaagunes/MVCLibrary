@@ -1,0 +1,43 @@
+﻿@model MVCLibrary.Models.Entity.Book
+@{
+    ViewBag.Title = "AddBook";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+<h2>Kitap Ekleme Sayfası</h2>
+<form class="form-group" method="post">
+    <div style="margin-top:15px">
+        <label>Kitap Adı</label>
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    </div>
+    <br />
+    <div style="margin-top:15px">
+        <label>Kitap Kategorisi</label>
+        @Html.DropDownListFor(x => x.Category1.CategoryID,(List<SelectListItem>)ViewBag.categories, new {@class = "form-control" })
+    </div>
+    <br />
+    <div style="margin-top:15px">
+        <label>Kitap Yazarı</label>
+        @Html.DropDownListFor(x => x.Author1.AuthorID, (List<SelectListItem>)ViewBag.authors, new { @class = "form-control" })
+    </div>
+    <br />
+    <div style="margin-top:15px">
+        <label>Basım Yılı</label>
+        @Html.TextBoxFor(x => x.PublicationYear, new { @class = "form-control" })
+    </div>
+    <br />
+    <div style="margin-top:15px">
+        <label>Yayın Evi</label>
+        @Html.TextBoxFor(x => x.PublishingHouse, new { @class = "form-control" })
+    </div>
+    <br />
+    <div style="margin-top:15px">
+        <label>Sayfa Sayısı</label>
+        @Html.TextBoxFor(x => x.Page, new { @class = "form-control" })
+    </div>
+    <br />
+    <div style="margin-top:15px">
+        <button class="btn btn-success" id="Btn1">Yazar Ekle</button>
+    </div>
+</form>
+

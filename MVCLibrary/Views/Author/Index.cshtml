@@ -30,7 +30,7 @@
             @*<td>@Html.ActionLink("Sil", "DeleteAuthor", new { id = item.AuthorID }, new { @class = "Modal", onclick = "return confirm('Silmek İstiyor Musunuz?')" }) </td>*@
             @*<td><a href="/Author/DeleteAuthor/@item.AuthorID" class="btn btn-danger">Sil</a></td>*@
 
-            <td><a href="#" class="btn btn-danger" onclick="confirmDelete('@Url.Action("DeleteAuthor", new { id = item.AuthorID })')">Sil</a><td>
+            <td><a href="#" class="btn btn-danger" onclick="confirmDelete('@Url.Action("DeleteAuthor", new { id = item.AuthorID })')">Sil</a></td>
             <td><a href="/Author/UpdateAuthor/@item.AuthorID" class="btn btn-warning">Güncelle</a></td>
         </tr>
     }

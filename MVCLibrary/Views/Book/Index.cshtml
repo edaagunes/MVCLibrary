@@ -1,0 +1,57 @@
+﻿@using MVCLibrary.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Book>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+<h2>Kitap Sayfası</h2>
+
+@using (Html.BeginForm("Index", "Book", FormMethod.Get))
+{
+    <div style="margin-bottom:15px; margin-top:15px;">
+        @*<input type="text" class="form-control" placeholder="Kitap Ara..."/>*@
+        @Html.TextBox("p",null,new { @class = "form-input" })
+        <input type="submit" value="Ara" class="btn btn-light" placeholder="Ara" />
+    </div>
+}
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Kitap Adı</th>
+        <th>Kitap Yazarı</th>
+        <th>Kategori</th>
+        <th>Basım Yılı</th>
+        <th>Yayın Evi</th>
+        <th>Sayfa</th>
+        <th>Durum</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>@k.BookID</td>
+            <td>@k.Name</td>
+            <td>@k.Author1.Name @k.Author1.Surname</td>
+            <td>@k.Category1.Name</td>
+            <td>@k.PublicationYear</td>
+            <td>@k.PublishingHouse</td>
+            <td>@k.Page</td>
+            <td>@k.Status</td>
+            <td><a href="/Book/DeleteBook/@k.BookID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Book/UpdateBook/@k.BookID" class="btn btn-warning">Güncelle</a></td>
+        </tr>
+    }
+
+</table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions
+{
+    //LiElementClasses = new List<string>
+    //{"page-link"}
+})
+
+<a href="/Book/AddBook" class="btn btn-primary">Kitap Ekle</a>
+
