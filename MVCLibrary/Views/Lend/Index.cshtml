@@ -33,10 +33,10 @@
             <td>@k.SaleID</td>
             <td>@k.Book1.Name</td>
             <td>@k.Member1.Name @k.Member1.Surname</td>
-            <td>@k.Staff</td>
-            <td>@Convert.ToDateTime(k.AcquisitionDate).ToString("dd/MM/yyyy")</td>
-            <td>@Convert.ToDateTime(k.ReturnDate).ToString("dd/MM/yyyy")</td>
-            <td><a href="/Lend/Index/@k.SaleID" class="btn btn-default" style="background-color:lightsalmon">Kitabı İade Et</a></td>
+            <td>@k.Staff1.Name</td>
+            <td style="background-color:azure">@Convert.ToDateTime(k.AcquisitionDate).ToString("dd/MM/yyyy")</td>
+            <td style="background-color:khaki">@Convert.ToDateTime(k.ReturnDate).ToString("dd/MM/yyyy")</td>
+            <td><a href="/Lend/BorrowBook/@k.SaleID" class="btn btn-default" style="background-color:cornflowerblue">Kitabı İade Et</a></td>
         </tr>
     }
 

@@ -69,6 +69,8 @@
           <Property Name="Staff" Type="tinyint" />
           <Property Name="AcquisitionDate" Type="smalldatetime" />
           <Property Name="ReturnDate" Type="smalldatetime" />
+          <Property Name="MemberReturnDate" Type="smalldatetime" />
+          <Property Name="SaleState" Type="bit" />
         </EntityType>
         <EntityType Name="Staff">
           <Key>
@@ -330,6 +332,8 @@
           <NavigationProperty Name="Member1" Relationship="Self.FK_Sale_Member" FromRole="Sale" ToRole="Member" />
           <NavigationProperty Name="Penalty" Relationship="Self.FK_Penalty_Sale" FromRole="Sale" ToRole="Penalty" />
           <NavigationProperty Name="Staff1" Relationship="LibraryDbModel.FK_Sale_Staff" FromRole="Sale" ToRole="Staff" />
+          <Property Name="SaleState" Type="Boolean" />
+          <Property Name="MemberReturnDate" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="Staff">
           <Key>
@@ -589,6 +593,8 @@
           <EntitySetMapping Name="Sale">
             <EntityTypeMapping TypeName="LibraryDbModel.Sale">
               <MappingFragment StoreEntitySet="Sale">
+                <ScalarProperty Name="MemberReturnDate" ColumnName="MemberReturnDate" />
+                <ScalarProperty Name="SaleState" ColumnName="SaleState" />
                 <ScalarProperty Name="SaleID" ColumnName="SaleID" />
                 <ScalarProperty Name="Book" ColumnName="Book" />
                 <ScalarProperty Name="Member" ColumnName="Member" />

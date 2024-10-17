@@ -7,7 +7,7 @@
       <Diagram DiagramId="47a7cbca67994815a5a5ae7b8c514e28" Name="Diagram1">
         <EntityTypeShape EntityType="LibraryDbModel.Author" Width="1.5" PointX="0.625" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LibraryDbModel.Book" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="LibraryDbModel.Category" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDbModel.Category" Width="1.5" PointX="5.125" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="LibraryDbModel.Member" Width="1.5" PointX="0.625" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="LibraryDbModel.Penalty" Width="1.5" PointX="2.75" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="LibraryDbModel.Sale" Width="1.5" PointX="5" PointY="0.5" IsExpanded="true" />

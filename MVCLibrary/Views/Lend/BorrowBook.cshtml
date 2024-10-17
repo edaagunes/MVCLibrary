@@ -1,0 +1,37 @@
+﻿@model MVCLibrary.Models.Entity.Sale
+@{
+    ViewBag.Title = "BorrowBook";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateBorrow", "Lend", FormMethod.Post))
+{
+    <div class="form-group">
+        <br />
+        <label>İşlem ID</label>
+        @Html.TextBoxFor(x => x.SaleID, new { @class = "form-control" })
+        <br />
+        <label>Kitap Adı</label>
+        @Html.TextBoxFor(x => x.Book1.Name, new { @class = "form-control" })
+        <br />
+        <label>Üye Adı</label>
+        @Html.TextBoxFor(x => x.Member1.Name, new { @class = "form-control" })
+        <br />
+        <label>Personel Adı</label>
+        @Html.TextBoxFor(x => x.Staff1.Name, new { @class = "form-control" })
+        <br />
+        <label>Alış Tarihi</label>
+        @Html.TextBoxFor(x => x.AcquisitionDate, "{0: dd/MM/yyyy}", new { @class = "form-control" })
+        <br />
+        <label>Normal İade Tarihi</label>
+        @Html.TextBoxFor(x => x.ReturnDate, "{0: dd/MM/yyyy}", new { @class = "form-control" })
+        <br />
+        <label>Üyenin Getirdiği Tarih</label>
+        <input type="text" class="form-control" name="MemberReturnDate" value="@DateTime.Now.ToShortDateString()" />
+        <br />
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-group" style="background-color: cornflowerblue; color: white">Ödünç Kitabı Geri Al</button>
+    </div>
+}
+

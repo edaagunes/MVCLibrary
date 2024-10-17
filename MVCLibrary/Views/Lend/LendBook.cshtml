@@ -9,7 +9,7 @@
 <form class="form-group" method="post">
     <div style="margin-top:15px">
         <label>Üye ID</label>
-        @Html.TextBoxFor(x => x.Member, new { @class = "form-control" })
+        @Html.TextBoxFor(x => x.Member1.MemberID, new { @class = "form-control" })
     </div>
     <div style="margin-top:15px">
         <label>Kitap ID</label>
@@ -17,7 +17,7 @@
     </div>
     <div style="margin-top:15px">
         <label>Personel ID</label>
-        @Html.TextBoxFor(x => x.Staff, new { @class = "form-control" })
+        @Html.TextBoxFor(x => x.Staff1.StaffID, new { @class = "form-control" })
     </div>
     <div style="margin-top:15px">
         <label>Kitap Alış Tarihi</label>
@@ -29,6 +29,7 @@
     </div>
     <div style="margin-top:15px">
         <button class="btn btn-group" style="background-color:lightblue;color:white">Kitabı Ödünç Ver</button>
+        <input type="hidden" value="false" name="SaleState"/>
     </div>
 </form>
 

@@ -15,7 +15,7 @@ namespace MVCLibrary.Controllers
         public ActionResult Index(string p,int page=1)
         {
           //  var values = context.Book.ToList();
-          var values=context.Book.Where(x=>x.Name.Contains(p) || p==null || x.Author1.Name.Contains(p)||x.Author1.Surname.Contains(p)).ToList().ToPagedList(page,4);
+          var values=context.Book.Where(x=>x.Name.Contains(p) || p==null || x.Author1.Name.Contains(p)||x.Author1.Surname.Contains(p)).ToList().ToPagedList(page,6);
 
             return View(values);
         }
@@ -43,8 +43,8 @@ namespace MVCLibrary.Controllers
         [HttpPost]
         public ActionResult AddBook(Book book)
         {
-            var category=context.Category.Where(x=>x.CategoryID==book.Category1.CategoryID).FirstOrDefault();
-            var author=context.Author.Where(y=>y.AuthorID==book.Author1.AuthorID).FirstOrDefault();
+            var category = context.Category.Where(x => x.CategoryID == book.Category1.CategoryID).FirstOrDefault();
+            var author = context.Author.Where(y => y.AuthorID == book.Author1.AuthorID).FirstOrDefault();
             book.Category1 = category;
             book.Author1 = author;
             book.Status = true;
@@ -92,7 +92,7 @@ namespace MVCLibrary.Controllers
             values.PublicationYear = book.PublicationYear;
             values.PublishingHouse = book.PublishingHouse;
             values.Page = book.Page;
-
+            book.Status = true;
             var category=context.Category.Where(x=>x.CategoryID==book.Category1.CategoryID).FirstOrDefault();
             var author=context.Author.Where(y=>y.AuthorID==book.Author1.AuthorID).FirstOrDefault();
             book.Category = category.CategoryID;

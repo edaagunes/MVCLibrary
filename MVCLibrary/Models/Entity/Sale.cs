@@ -20,6 +20,8 @@ namespace MVCLibrary.Models.Entity
         public Nullable<byte> Staff { get; set; }
         public Nullable<System.DateTime> AcquisitionDate { get; set; }
         public Nullable<System.DateTime> ReturnDate { get; set; }
+        public Nullable<bool> SaleState { get; set; }
+        public Nullable<System.DateTime> MemberReturnDate { get; set; }
     
         public virtual Book Book1 { get; set; }
         public virtual Member Member1 { get; set; }
