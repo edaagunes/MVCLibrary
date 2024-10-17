@@ -1,0 +1,34 @@
+﻿@model MVCLibrary.Models.Entity.Sale
+@{
+    ViewBag.Title = "LendBook";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+<h2>Ödünç Kitap</h2>
+
+<form class="form-group" method="post">
+    <div style="margin-top:15px">
+        <label>Üye ID</label>
+        @Html.TextBoxFor(x => x.Member, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Kitap ID</label>
+        @Html.TextBoxFor(x => x.Book1.BookID, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Personel ID</label>
+        @Html.TextBoxFor(x => x.Staff, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Kitap Alış Tarihi</label>
+       <input type="text" class="form-control" name="AcquisitionDate" value="@DateTime.Now.ToShortDateString()"/>
+    </div>
+    <div style="margin-top:15px">
+        <label>Kitap İade Tarihi</label>
+        <input type="text" class="form-control" name="ReturnDate" value="@DateTime.Now.AddDays(7).ToShortDateString()"/>
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-group" style="background-color:lightblue;color:white">Kitabı Ödünç Ver</button>
+    </div>
+</form>
+

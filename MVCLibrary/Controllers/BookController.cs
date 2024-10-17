@@ -47,6 +47,7 @@ namespace MVCLibrary.Controllers
             var author=context.Author.Where(y=>y.AuthorID==book.Author1.AuthorID).FirstOrDefault();
             book.Category1 = category;
             book.Author1 = author;
+            book.Status = true;
             context.Book.Add(book);
             context.SaveChanges();
             return RedirectToAction("Index");

@@ -11,7 +11,7 @@
         <EntityTypeShape EntityType="LibraryDbModel.Member" Width="1.5" PointX="0.625" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="LibraryDbModel.Penalty" Width="1.5" PointX="2.75" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="LibraryDbModel.Sale" Width="1.5" PointX="5" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="LibraryDbModel.Staff" Width="1.5" PointX="7.125" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDbModel.Staff" Width="1.5" PointX="7.25" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LibraryDbModel.sysdiagrams" Width="1.5" PointX="9" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="LibraryDbModel.Till" Width="1.5" PointX="7" PointY="0.5" IsExpanded="true" />
         <AssociationConnector Association="LibraryDbModel.FK_Book_Author" ManuallyRouted="false" />
@@ -20,6 +20,7 @@
         <AssociationConnector Association="LibraryDbModel.FK_Penalty_Member" ManuallyRouted="false" />
         <AssociationConnector Association="LibraryDbModel.FK_Sale_Member" ManuallyRouted="false" />
         <AssociationConnector Association="LibraryDbModel.FK_Penalty_Sale" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDbModel.FK_Sale_Staff" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

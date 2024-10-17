@@ -12,9 +12,9 @@ namespace MVCLibrary.Controllers
     public class MemberController : Controller
     {
         LibraryDbEntities context=new LibraryDbEntities();
-        public ActionResult Index(int page = 1)
+        public ActionResult Index(int page=1)
         {
-            var values = context.Member.ToList().ToPagedList(page, 5);
+            var values = context.Member.ToList().ToPagedList(page, 4);
             return View(values);
         }
 
@@ -26,6 +26,10 @@ namespace MVCLibrary.Controllers
         [HttpPost]
         public ActionResult AddMember(Member member)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("AddMember");
+            }
             context.Member.Add(member);
             context.SaveChanges();
             return RedirectToAction("Index");

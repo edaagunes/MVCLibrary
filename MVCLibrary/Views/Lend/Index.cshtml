@@ -1,0 +1,49 @@
+﻿@using MVCLibrary.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Sale>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+<h2>Ödünç Kitap Listesi</h2>
+
+@using (Html.BeginForm("Index", "Lend", FormMethod.Get))
+{
+    <div style="margin-bottom:15px; margin-top:15px;">
+        @*<input type="text" class="form-control" placeholder="Kitap Ara..."/>*@
+        @Html.TextBox("p", null, new { @class = "form-input" })
+        <input type="submit" value="Ara" class="btn btn-light" placeholder="Ara" />
+    </div>
+}
+<table class="table table-bordered">
+    <tr>
+        <th>İşlem ID</th>
+        <th>Kitap Adı</th>
+        <th>Üye</th>
+        <th>Personel</th>
+        <th>Alış Tarihi</th>
+        <th>İade Tarihi</th>
+        <th></th>
+    </tr>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>@k.SaleID</td>
+            <td>@k.Book1.Name</td>
+            <td>@k.Member1.Name @k.Member1.Surname</td>
+            <td>@k.Staff</td>
+            <td>@Convert.ToDateTime(k.AcquisitionDate).ToString("dd/MM/yyyy")</td>
+            <td>@Convert.ToDateTime(k.ReturnDate).ToString("dd/MM/yyyy")</td>
+            <td><a href="/Lend/Index/@k.SaleID" class="btn btn-default" style="background-color:lightsalmon">Kitabı İade Et</a></td>
+        </tr>
+    }
+
+</table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+
+
+
+
+
