@@ -53,6 +53,10 @@ namespace MVCLibrary.Controllers
         [HttpPost]
         public ActionResult AddAuthor(Author a)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("AddAuthor");
+            }
             context.Author.Add(a);
             context.SaveChanges();
             return RedirectToAction("Index");

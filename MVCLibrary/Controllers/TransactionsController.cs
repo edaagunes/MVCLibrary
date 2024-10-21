@@ -15,5 +15,7 @@ namespace MVCLibrary.Controllers
             var values=context.Sale.Where(x=>x.SaleState==true).ToList();
             return View(values);
         }
+
+
     }
 }

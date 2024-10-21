@@ -10,11 +10,13 @@
     <div>
         <label>Yazar Adı</label>
         <input type="text" class="form-control" name="Name" />
+        @Html.ValidationMessageFor(y => y.Name,null, new { @style = "color: red;" })
     </div>
     <br />
     <div>
         <label>Yazar Soyadı</label>
         <input type="text" class="form-control" name="Surname" />
+        @Html.ValidationMessageFor(y => y.Surname, null, new { @style = "color: red;" })
     </div>
     <br />
     <div>

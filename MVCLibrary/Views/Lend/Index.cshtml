@@ -18,7 +18,7 @@
     </div>
 }
 <table class="table table-bordered">
-    <tr>
+    <tr style="background-color:lightpink">
         <th>İşlem ID</th>
         <th>Kitap Adı</th>
         <th>Üye</th>
@@ -35,7 +35,7 @@
             <td>@k.Member1.Name @k.Member1.Surname</td>
             <td>@k.Staff1.Name</td>
             <td style="background-color:azure">@Convert.ToDateTime(k.AcquisitionDate).ToString("dd/MM/yyyy")</td>
-            <td style="background-color:khaki">@Convert.ToDateTime(k.ReturnDate).ToString("dd/MM/yyyy")</td>
+            <td style="background-color:gainsboro">@Convert.ToDateTime(k.ReturnDate).ToString("dd/MM/yyyy")</td>
             <td><a href="/Lend/BorrowBook/@k.SaleID" class="btn btn-default" style="background-color:cornflowerblue">Kitabı İade Et</a></td>
         </tr>
     }
