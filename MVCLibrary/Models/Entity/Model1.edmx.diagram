@@ -21,6 +21,8 @@
         <AssociationConnector Association="LibraryDbModel.FK_Sale_Member" ManuallyRouted="false" />
         <AssociationConnector Association="LibraryDbModel.FK_Penalty_Sale" ManuallyRouted="false" />
         <AssociationConnector Association="LibraryDbModel.FK_Sale_Staff" />
+        <EntityTypeShape EntityType="LibraryDbModel.About" Width="1.5" PointX="9" PointY="3.375" />
+        <EntityTypeShape EntityType="LibraryDbModel.Contact" Width="1.5" PointX="7.25" PointY="4.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

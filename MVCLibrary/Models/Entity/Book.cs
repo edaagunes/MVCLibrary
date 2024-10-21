@@ -28,6 +28,7 @@ namespace MVCLibrary.Models.Entity
         public string PublishingHouse { get; set; }
         public string Page { get; set; }
         public Nullable<bool> Status { get; set; }
+        public string ImageUrl { get; set; }
     
         public virtual Author Author1 { get; set; }
         public virtual Category Category1 { get; set; }
