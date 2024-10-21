@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using MVCLibrary.Models.Entity;
 using PagedList;
 using PagedList.Mvc;
+using System.Data.Entity;
 
 namespace MVCLibrary.Controllers
 {
@@ -64,7 +65,30 @@ namespace MVCLibrary.Controllers
 
         public ActionResult BorrowBook(int id)
         {
-            var values = context.Sale.Find(id);
+            // İlgili verileri dahil ediyoruz (Kitap, Üye, Personel gibi ilişkili tablolar)
+            var values = context.Sale.Include(s => s.Book1).Include(s => s.Member1).Include(s => s.Staff1).FirstOrDefault(s=>s.SaleID==id);
+
+            // Eğer değer null ise, kullanıcıya bir hata mesajı verin
+            if (values == null)
+            {
+                ViewBag.Message = "Geçersiz satış kaydı.";
+                return View("BorrowBook");
+            }
+
+            // ReturnDate boş değilse geç gelen gün sayısını hesapla
+            if (values.ReturnDate != null)
+            {
+                DateTime d1 = DateTime.Parse(values.ReturnDate.ToString());
+                DateTime d2 = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+                TimeSpan d3 = d2 - d1;
+                ViewBag.value1 = d3.TotalDays;
+            }
+            else
+            {
+                // Eğer iade tarihi yoksa, 0 gün geç gelmiş sayabiliriz
+                ViewBag.value1 = 0;
+            }
+
             return View("BorrowBook", values);
         }
 
