@@ -141,5 +141,10 @@ namespace MVCLibrary.Models.Entity
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
+    
+        public virtual ObjectResult<string> MostBookAuthor()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("MostBookAuthor");
+        }
     }
 }
