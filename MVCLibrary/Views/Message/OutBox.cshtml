@@ -1,0 +1,29 @@
+﻿@model  List<MVCLibrary.Models.Entity.Message>
+@{
+    ViewBag.Title = "OutBox";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+<h2>Giden Mesajlar</h2>
+<br />
+<table class="table table-hover">
+    <tr>
+        <th>Alıcı</th>
+        <th>Konu</th>
+        <th>Mesaj</th>
+        <th>Tarih</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Receiver</td>
+            <td>@item.Subject</td>
+            <td>@item.Content</td>
+            <td>@item.Date.Value.ToShortDateString()</td>
+        </tr>
+    }
+
+</table>
+
+

@@ -34,5 +34,13 @@ namespace MVCLibrary.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult MemberBooks()
+        {
+            var value = (string)Session["Mail"];
+            var member = context.Member.Where(x => x.Mail == value.ToString()).Select(x=>x.MemberID).FirstOrDefault();
+            var values = context.Sale.Where(x => x.Member==member).ToList();
+            return View(values);
+        }
+
     }
 }

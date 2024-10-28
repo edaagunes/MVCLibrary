@@ -1,0 +1,28 @@
+﻿@model  MVCLibrary.Models.Entity.Message
+@{
+    ViewBag.Title = "NewMessage";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+<h2>Yeni Mesaj</h2>
+<br />
+<form class="form-group" method="post">
+    <div>
+        <label>Alıcı Mail</label>
+        @Html.TextBoxFor(x => x.Receiver, new { @class = "form-control " })
+    </div>
+    <br />
+    <div>
+        <label>Konu</label>
+        @Html.TextBoxFor(x => x.Subject, new { @class = "form-control " })
+    </div>
+    <br />
+    <div>
+        <label>Mesaj</label>
+        @Html.TextAreaFor(x => x.Content,4,1, new { @class = "form-control " })
+    </div>
+    <br />
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="Btn1">Gönder</button>
+    </div>
+</form>

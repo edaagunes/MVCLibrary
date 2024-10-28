@@ -25,7 +25,8 @@ namespace MVCLibrary.Controllers
             {
                 FormsAuthentication.SetAuthCookie(values.Mail, false);
                 Session["Mail"]=values.Mail.ToString();
-              
+                Session["Ad"] = values.Name.ToString();
+                Session["Soyad"] = values.Surname.ToString();
                 return RedirectToAction("Index","MemberPanel");
             }
             else
@@ -33,6 +34,16 @@ namespace MVCLibrary.Controllers
                 return View();
             }
           
+        }
+
+        public ActionResult logout()
+
+        {
+            Response.Cookies.Clear();
+            FormsAuthentication.SignOut();
+            Session.Clear();
+            return RedirectToAction("Login", "Login");
+
         }
     }
 }
