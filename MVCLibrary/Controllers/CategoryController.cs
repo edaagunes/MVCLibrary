@@ -14,7 +14,7 @@ namespace MVCLibrary.Controllers
         LibraryDbEntities context= new LibraryDbEntities();
         public ActionResult Index(int page=1)
         {
-            var values=context.Category.ToList().ToPagedList(page, 5);
+            var values=context.Category.Where(x=>x.Status==true).ToList().ToPagedList(page, 5);
             return View(values);
         }
 
@@ -34,7 +34,7 @@ namespace MVCLibrary.Controllers
         public ActionResult DeleteCategory(int id)
         {
             var values= context.Category.Find(id);
-            context.Category.Remove(values);
+            values.Status = false;
             context.SaveChanges();
             return RedirectToAction("Index");
         }

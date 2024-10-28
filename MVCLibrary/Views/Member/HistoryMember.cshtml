@@ -1,0 +1,25 @@
+﻿@model List<MVCLibrary.Models.Entity.Sale>
+@{
+    ViewBag.Title = "HistoryMember";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+<h2>Üye: @ViewBag.memberName</h2>
+<br />
+<table class="table table-condensed">
+    <tr style="background-color:aliceblue">
+        <th>Kitap Adı</th>
+        <th>Personel</th>
+        <th>Alış Tarihi</th>
+        <th>İade Tarihi</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Book1.Name</td>
+            <td>@item.Staff1.Name</td>
+            <td>@Convert.ToDateTime(@item.AcquisitionDate).ToString("dd/MM/yyyy")</td>
+            <td>@Convert.ToDateTime(@item.MemberReturnDate).ToString("dd/MM/yyyy")</td>
+        </tr>
+    }
+</table>

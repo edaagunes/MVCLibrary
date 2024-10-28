@@ -65,5 +65,12 @@ namespace MVCLibrary.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult HistoryMember(int id) 
+        {
+            var values=context.Sale.Where(x=>x.Member==id).ToList();
+            ViewBag.memberName=context.Member.Where(y=>y.MemberID==id).Select(y=>y.Name + " " + y.Surname).FirstOrDefault();
+            return View(values);
+        }
     }
 }

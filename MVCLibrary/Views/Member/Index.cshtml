@@ -12,14 +12,10 @@
     <tr style="background-color:beige">
         <th>Üye ID</th>
         <th>Üye</th>
-        <th>Mail</th>
-        <th>Kullanıcı Adı</th>
-        <th>Şifre</th>
-        <th>Fotoğraf</th>
-        <th>Telefon</th>
-        <th>Okul</th>
+        <th>Öğrenim Bilgisi</th>
         <th>Sil</th>
         <th>Güncelle</th>
+        <th>Kitap Geçmişi</th>
     </tr>
 
     @foreach (var item in Model)
@@ -27,14 +23,10 @@
         <tr>
             <td>@item.MemberID</td>
             <td>@item.Name @item.Surname</td>
-            <td>@item.Mail</td>
-            <td>@item.Username</td>
-            <td>@item.Password</td>
-            <td>@item.Photo</td>
-            <td>@item.Phone</td>
             <td>@item.School</td>
             <td><a href="/Member/DeleteMember/@item.MemberID" class="btn btn-danger">Sil</a></td>
             <td><a href="/Member/UpdateMember/@item.MemberID" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/Member/HistoryMember/@item.MemberID" class="btn btn-primary" style="background-color:lightgreen">Kitap Geçmişi</a></td>
         </tr>
     }
 

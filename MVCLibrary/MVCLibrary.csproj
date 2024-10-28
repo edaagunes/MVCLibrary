@@ -613,6 +613,8 @@
     <Content Include="Views\Message\NewMessage.cshtml" />
     <Content Include="Views\Message\OutBox.cshtml" />
     <Content Include="Views\MemberPanel\MemberBooks.cshtml" />
+    <Content Include="Views\Author\AuthorBooks.cshtml" />
+    <Content Include="Views\Member\HistoryMember.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -41,6 +41,7 @@
           </Key>
           <Property Name="CategoryID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="Status" Type="bit" />
         </EntityType>
         <EntityType Name="Contact">
           <Key>
@@ -322,6 +323,7 @@
           <Property Name="CategoryID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Book" Relationship="Self.FK_Book_Category" FromRole="Category" ToRole="Book" />
+          <Property Name="Status" Type="Boolean" />
         </EntityType>
         <EntityType Name="Member">
           <Key>
@@ -625,6 +627,7 @@
           <EntitySetMapping Name="Category">
             <EntityTypeMapping TypeName="LibraryDbModel.Category">
               <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>

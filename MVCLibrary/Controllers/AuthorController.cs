@@ -14,7 +14,7 @@ namespace MVCLibrary.Controllers
        LibraryDbEntities context=new LibraryDbEntities();
         public ActionResult Index(int page=1)
         {
-            var values=context.Author.ToList().ToPagedList(page,4);
+            var values=context.Author.ToList().ToPagedList(page,7);
             return View(values);
         }
 
@@ -60,6 +60,13 @@ namespace MVCLibrary.Controllers
             context.Author.Add(a);
             context.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult AuthorBooks(int id)
+        {
+            var author=context.Book.Where(x=>x.Author==id).ToList();
+            ViewBag.authorName=context.Author.Where(y=>y.AuthorID==id).Select(y=>y.Name +" "+y.Surname).FirstOrDefault();
+            return View(author);
         }
     }
 }

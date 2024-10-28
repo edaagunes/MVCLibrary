@@ -1,0 +1,27 @@
+﻿@model List<MVCLibrary.Models.Entity.Book>
+@{
+    ViewBag.Title = "AuthorBooks";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+
+<h2>Kitap Yazarı: @ViewBag.authorName</h2>
+<br />
+<table class="table table-active">
+    <tr style="background-color:hotpink">
+        <th>ID</th>
+        <th>Kitap Adı</th>
+        <th>Kategori</th>
+        <th>Yayın Evi</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.BookID</td>
+            <td>@item.Name</td>
+            <td>@item.Category1.Name</td>
+            <td>@item.PublishingHouse</td>
+        </tr>
+    }
+
+</table>

@@ -25,20 +25,44 @@ namespace MVCLibrary.Controllers
         [HttpGet]
         public ActionResult LendBook()
         {
+            List<SelectListItem> value=(from x in context.Member.ToList()
+                                        select new SelectListItem
+                                        {
+                                            Text = x.Name +" "+x.Surname,
+                                            Value=x.MemberID.ToString(),
+                                        }).ToList();
+
+            List<SelectListItem> value2 = (from x in context.Book.Where(x=>x.Status==true).ToList()
+                                          select new SelectListItem
+                                          {
+                                              Text = x.Name,
+                                              Value = x.BookID.ToString(),
+                                          }).ToList();
+
+            List<SelectListItem> value3 = (from x in context.Staff.ToList()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.Name,
+                                               Value = x.StaffID.ToString(),
+                                           }).ToList();
+            ViewBag.member=value;
+            ViewBag.book=value2;
+            ViewBag.staff=value3;
             return View();
         }
 
         [HttpPost]
         public ActionResult LendBook(Sale sale)
         {
-            //context.Sale.Add(sale);
-            //context.SaveChanges();
-            //return RedirectToAction("LendBook");
+            var member = context.Member.Where(x => x.MemberID == sale.Member1.MemberID).FirstOrDefault();
+            var book = context.Book.Where(x => x.BookID == sale.Book1.BookID).FirstOrDefault();
+            var staff = context.Staff.Where(x => x.StaffID == sale.Staff1.StaffID).FirstOrDefault();
+
 
             // Kitabı ID'ye göre veritabanından getir
-            var book = context.Book.FirstOrDefault(b => b.BookID == sale.Book1.BookID);
-            var member = context.Member.FirstOrDefault(m => m.MemberID == sale.Member1.MemberID);
-            var staff = context.Staff.FirstOrDefault(s => s.StaffID == sale.Staff1.StaffID);
+            //var book = context.Book.FirstOrDefault(b => b.BookID == sale.Book1.BookID);
+            //var member = context.Member.FirstOrDefault(m => m.MemberID == sale.Member1.MemberID);
+            //var staff = context.Staff.FirstOrDefault(s => s.StaffID == sale.Staff1.StaffID);
 
             if (book != null && member != null && staff != null)
             {
@@ -51,6 +75,7 @@ namespace MVCLibrary.Controllers
 
                 context.Sale.Add(sale);
                 context.SaveChanges();
+                return RedirectToAction("Index");
             }
             else
             {
@@ -59,7 +84,7 @@ namespace MVCLibrary.Controllers
                 return View();
             }
 
-            return RedirectToAction("LendBook");
+            
         }
     
 
