@@ -7,6 +7,7 @@ using MVCLibrary.Models.Entity;
 
 namespace MVCLibrary.Controllers
 {
+    [AllowAnonymous]
     public class RegisterController : Controller
     {
         LibraryDbEntities context=new LibraryDbEntities();
