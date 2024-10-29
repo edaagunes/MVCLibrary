@@ -1,0 +1,31 @@
+﻿@model MVCLibrary.Models.Entity.Announcement
+@{
+    ViewBag.Title = "AddNotice";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+<br />
+<h2>Duyuru Ekleme Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+    <div>
+        <label>Duyuru Kategorisi</label>
+        @Html.TextBoxFor(x => x.Category, new { @class = "form-control " })
+    </div>
+    <br />
+    <div>
+        <label>Duyuru İçeriği</label>
+        @Html.TextBoxFor(x => x.Content, new { @class = "form-control " })
+    </div>
+    <br />
+    <div>
+        <label>Duyuru Tarihi</label>
+        @Html.TextBoxFor(x => x.Date, new { @class = "form-control " })
+
+    </div>
+    <br />
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="Btn1">Ekle</button>
+    </div>
+</form>
+

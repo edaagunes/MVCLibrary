@@ -1,0 +1,27 @@
+﻿@model MVCLibrary.Models.Entity.Announcement
+@{
+    ViewBag.Title = "DetailNotice";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+<h2>Duyuru Detay Sayfası</h2>
+@using (Html.BeginForm("UpdateNotice", "Announcement", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.Id)
+        <br />
+        <label>Duyuru Kategorisi</label>
+        @Html.TextBoxFor(x => x.Category, new { @class = "form-control" })
+        <br />
+        <label>Duyuru İçeriği</label>
+        @Html.TextAreaFor(x => x.Content,2,1, new { @class = "form-control" })
+        <br />
+        <label>Duyuru Tarihi</label>
+        @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+        <br />
+    </div>
+    <div>
+        <button class="btn btn-warning">Güncelle</button>
+    </div>
+}
+

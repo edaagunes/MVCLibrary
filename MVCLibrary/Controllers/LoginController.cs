@@ -36,7 +36,7 @@ namespace MVCLibrary.Controllers
           
         }
 
-        public ActionResult logout()
+        public ActionResult Logout()
 
         {
             Response.Cookies.Clear();

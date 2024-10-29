@@ -1,0 +1,29 @@
+﻿@model List<MVCLibrary.Models.Entity.Announcement>
+@{
+    ViewBag.Title = "Notice";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+<h2>Duyurular</h2>
+<br />
+<table class="table table-bordered">
+    <tr style="background-color:linen">
+        <th>Kategori</th>
+        <th>Tarih</th>
+        <th>İçerik</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Category</td>
+            <td>@Convert.ToDateTime(@item.Date).ToString("dd/MM/yyyy")</td>
+            <td>@item.Content</td>
+        </tr>
+    }
+
+</table>
+
+
+
+

@@ -1,0 +1,51 @@
+﻿@model List<MVCLibrary.Models.Entity.Announcement>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+    string renk = "";
+}
+
+<h2>Duyurular</h2>
+<br />
+<table class="table table-bordered">
+    <tr style="background-color:linen">
+        <th>Duyuru No</th>
+        <th>Kategori</th>
+        <th>Tarih</th>
+        <th>Sil</th>
+        <th>İçerik</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.Category=="Diğer")
+        {
+            renk = "bg-info text-white";
+        }
+        if (item.Category == "Yeni Kitap")
+        {
+            renk = "bg-warning text-white";
+        }
+        if (item.Category == "İletişim")
+        {
+            renk = "bg-success text-white";
+        }
+        if (item.Category == "Kitapları Geciktirmeyin")
+        {
+            renk = "bg-danger text-white";
+        }
+
+
+        <tr>
+            <td>@item.Id</td>
+            <td class="@renk">@item.Category</td>
+            <td>@Convert.ToDateTime(@item.Date).ToString("dd/MM/yyyy")</td>
+            <td><a href="/Announcement/DeleteNotice/@item.Id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Announcement/DetailNotice/@item.Id" class="btn btn-default" style="background-color:paleturquoise">Detaylar</a></td>
+        </tr>
+    }
+
+</table>
+
+<a href="/Announcement/AddNotice/" class="btn btn-primary">Yeni Duyuru Ekle</a>
+

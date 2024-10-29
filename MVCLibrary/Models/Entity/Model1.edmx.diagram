@@ -24,6 +24,7 @@
         <EntityTypeShape EntityType="LibraryDbModel.About" Width="1.5" PointX="8.875" PointY="2.875" />
         <EntityTypeShape EntityType="LibraryDbModel.Contact" Width="1.5" PointX="7" PointY="4.375" />
         <EntityTypeShape EntityType="LibraryDbModel.Message" Width="1.5" PointX="8.875" PointY="0.5" />
+        <EntityTypeShape EntityType="LibraryDbModel.Announcement" Width="1.5" PointX="10.625" PointY="0.625" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

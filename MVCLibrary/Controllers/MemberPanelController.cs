@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace MVCLibrary.Controllers
 {
@@ -41,6 +42,13 @@ namespace MVCLibrary.Controllers
             var values = context.Sale.Where(x => x.Member==member).ToList();
             return View(values);
         }
+
+        public ActionResult Notice()
+        {
+            var noticeList=context.Announcement.ToList();
+            return View(noticeList);
+        }
+
 
     }
 }
