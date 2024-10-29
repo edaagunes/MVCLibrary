@@ -1,0 +1,135 @@
+﻿@model List<MVCLibrary.Models.Entity.Admin>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <!-- Bootstrap CSS -->
+    @*<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">*@
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .modal {
+            display: !important; /* Modal'i her zaman göster */
+            opacity: 1 !important; /* Opaklık değerini tam yap */
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <table class="table table-bordered">
+            <tr>
+                <th>ID</th>
+                <th>Kullanıcı</th>
+                <th>Yetki</th>
+                <th>Sil</th>
+                <th>Düzenle</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.User</td>
+                    <td>@item.Authority</td>
+                    <td>
+                        <a class="btn btn-danger" href="/Settings/DeleteAdmin/@item.Id">
+                            <i class="fas fa-trash-alt"></i> Sil
+                        </a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success" href="/Settings/UpdateAdmin/@item.Id">
+                            <i class="fas fa-pencil-alt"></i> Düzenle
+                        </a>
+                    </td>
+                </tr>
+            }
+        </table>
+
+        <!-- Modal açma düğmesi -->
+        <button class="btn btn-primary" data-toggle="modal" data-target="#Modal">Yeni Admin Ekle</button>
+    </div>
+        <!-- Modal Yapısı -->
+        <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ModalLabel">Admin Ekleme Modalı</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="adminForm" method="post" action="@Url.Action("NewAdmin", "Settings")">
+                            <div class="form-group">
+                                <label for="userInput">Kullanıcı Adı</label>
+                                <input type="text" name="User" class="form-control" id="userInput" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="passwordInput">Şifre</label>
+                                <input type="password" name="Password" class="form-control" id="passwordInput" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="authorityInput">Yetki</label>
+                                <input type="text" name="Authority" class="form-control" id="authorityInput" required />
+                            </div>
+                            <button type="submit" class="btn btn-primary">Ekle</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script>
+            $(document).ready(function () {
+                // Modal açma butonuna tıklandığında
+                $('#Modal').on('show.bs.modal', function () {
+                    console.log('Modal açılıyor'); // Konsolda modalın açıldığını kontrol etmek için
+                });
+
+                // Modal tamamen açıldığında tetiklenen olay
+                $('#Modal').on('shown.bs.modal', function () {
+                    console.log('Modal tamamen açıldı');
+                });
+
+                // Modal kapatma butonuna tıklandığında
+                $('#Modal').on('hidden.bs.modal', function () {
+                    console.log('Modal kapandı'); // Konsolda modalın kapandığını kontrol etmek için
+                });
+
+                // Form gönderimi için AJAX işlemi
+                $('#adminForm').on('submit', function (event) {
+                    event.preventDefault(); // Varsayılan form gönderimini engelle
+                    console.log("Gönderilen veriler:", $(this).serialize()); // Gönderilen verileri kontrol et
+
+                    // AJAX isteği burada devam eder
+                    $.ajax({
+                        type: 'POST',
+                        url: $(this).attr('action'),
+                        data: $(this).serialize(),
+                        success: function (result) {
+                            console.log("Başarılı yanıt alındı:", result);
+                            $('#Modal').modal('hide'); // Modalı kapat
+                            $('body').removeClass('modal-open');
+                            $('.modal-backdrop').remove();
+                            location.reload(); // Sayfayı yenile
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("Hata: " + error); // Hata konsola yazdır
+                            alert("Bir hata oluştu: " + xhr.responseText); // Hata mesajı göster
+                        }
+                    });
+                });
+            });
+
+
+        </script>
+</body>
+</html>

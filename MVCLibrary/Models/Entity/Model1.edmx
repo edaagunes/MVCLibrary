@@ -19,6 +19,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="User" Type="varchar" MaxLength="20" />
           <Property Name="Password" Type="varchar" MaxLength="20" />
+          <Property Name="Authority" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="Announcement">
           <Key>
@@ -630,6 +631,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Authority" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -809,6 +811,7 @@
           <EntitySetMapping Name="Admin">
             <EntityTypeMapping TypeName="LibraryDbModel.Admin">
               <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="Authority" ColumnName="Authority" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="User" ColumnName="User" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

@@ -1,0 +1,27 @@
+﻿@model MVCLibrary.Models.Entity.Admin
+@{
+    ViewBag.Title = "UpdateAdmin";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateAdmin", "Settings", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>ID</label>
+        @Html.TextBoxFor(x => x.Id, new { @class = "form-control" })
+        <br />
+        <label>Kullanıcı</label>
+        @Html.TextBoxFor(x => x.User, new { @class = "form-control" })
+        <br />
+        <label>Şifre</label>
+        @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+        <br />
+        <label>Yetki</label>
+        @Html.TextBoxFor(x => x.Authority, new { @class = "form-control" })
+        <br />
+    </div>
+    <div>
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+}
+
