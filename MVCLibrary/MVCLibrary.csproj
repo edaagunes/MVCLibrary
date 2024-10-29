@@ -2714,6 +2714,7 @@
     <Content Include="Views\MemberPanel\Notice.cshtml" />
     <Content Include="Views\MemberPanel\PartialNotice.cshtml" />
     <Content Include="Views\MemberPanel\PartialSettings.cshtml" />
+    <Content Include="Views\Message\PartialMessageMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

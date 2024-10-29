@@ -40,5 +40,13 @@ namespace MVCLibrary.Controllers
             var values = context.Message.Where(x => x.Sender == memberMail.ToString()).ToList();
             return View(values);
         }
+
+        public PartialViewResult PartialMessageMenu()
+        {
+            var memberMail = (string)Session["Mail"].ToString();
+            ViewBag.incomingMail=context.Message.Where(x=>x.Receiver== memberMail).Count();
+            ViewBag.outgoingMail=context.Message.Where(x=>x.Sender== memberMail).Count();
+            return PartialView();
+        }
     }
 }
