@@ -12,6 +12,9 @@ namespace MVCLibrary
     {
         protected void Application_Start()
         {
+            // Global ViewBag Filter'ı ekleyin
+            GlobalFilters.Filters.Add(new GlobalViewBagAttribute());
+
             GlobalFilters.Filters.Add(new AuthorizeAttribute());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

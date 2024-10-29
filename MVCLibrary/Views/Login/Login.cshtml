@@ -30,7 +30,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
           rel="stylesheet">
     <!-- /google fonts-->
+    <style>
+        .btn-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px; /* Butonun üstten boşluk bırakmasını sağlar */
+        }
 
+        .btn-outline-warning {
+            color: lightgoldenrodyellow;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid lightgoldenrodyellow;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 
 
@@ -61,6 +76,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <button type="submit">Giriş Yap</button>
             }
         <p class=" w3l-register-p">Hesabın Yok Mu?<a href="/Register/Register" class="register"> Kayıt Ol</a></p>
+        <div class="btn-center">
+            <a class="btn-outline-warning" href="/AdminLogin/Login">Admin Girişi</a>
+        </div>
     </div>
     <footer>
         <p class="copyright-agileinfo"> &copy; 2024 Tüm Hakları Saklıdır. | Design by <a href="http://w3layouts.com">W3layouts</a></p>
