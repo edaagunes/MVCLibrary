@@ -100,8 +100,12 @@
         <a href="/Author/Index"><i class="fa fa-pencil"></i> &nbsp; Yazarlar</a>
         <a href="/Member/Index"><i class="fa fa-user"></i> &nbsp; Üyeler</a>
         <a href="/Staff/Index"><i class="fa fa-globe"></i> &nbsp; Personeller</a>
-        <a href="/Lend/LendBook"><i class="fa fa-arrow-circle-right"></i> &nbsp; Ödünç Kitap Ver</a>
-        <a href="/Lend/Index"><i class="fa fa-arrow-circle-left"></i> &nbsp; Ödünç Kitap Al</a>
+        @if (User.IsInRole("A"))
+        {
+            <a href="/Lend/LendBook"><i class="fa fa-arrow-circle-right"></i> &nbsp; Ödünç Kitap Ver</a>
+            <a href="/Lend/Index"><i class="fa fa-arrow-circle-left"></i> &nbsp; Ödünç Kitap Al</a>
+        }
+
         <a href="#"><i class="fa fa-arrows-alt"></i> &nbsp; Kasa</a>
         <a href="/Statistic/Index"><i class="fa fa-sort"></i> &nbsp; İstatistikler</a>
         <a href="/Announcement/Index"><i class="fa fa-phone"></i> &nbsp; Duyurular</a>

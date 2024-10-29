@@ -11,9 +11,11 @@ using System.Data.Entity;
 
 namespace MVCLibrary.Controllers
 {
+    [Authorize(Roles = "A")]
     public class LendController : Controller
     {
         LibraryDbEntities context = new LibraryDbEntities();
+        
         public ActionResult Index(string p, int page = 1)
         {
             var values = context.Sale.Where(x => (x.Book1.Name.Contains(p) || p == null || x.Member1.Name.Contains(p) || x.Member1.Surname.Contains(p))
