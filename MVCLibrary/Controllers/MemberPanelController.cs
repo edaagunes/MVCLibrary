@@ -11,8 +11,7 @@ namespace MVCLibrary.Controllers
     public class MemberPanelController : Controller
     {
         LibraryDbEntities context = new LibraryDbEntities();
-       
-        [Authorize]
+
         public ActionResult Index()
         {
             var memberMail = (string)Session["Mail"];

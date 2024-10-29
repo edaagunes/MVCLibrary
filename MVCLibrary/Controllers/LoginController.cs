@@ -8,6 +8,7 @@ using MVCLibrary.Models.Entity;
 
 namespace MVCLibrary.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         LibraryDbEntities context=new LibraryDbEntities();
