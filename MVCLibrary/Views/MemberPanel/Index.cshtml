@@ -1,56 +1,275 @@
-﻿@model MVCLibrary.Models.Entity.Member
+﻿@model List<MVCLibrary.Models.Entity.Announcement>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutPanel.cshtml";
 }
 
-<h2>Üye Profil Bilgileri</h2>
-<br />
-@using (Html.BeginForm("MemberProfile", "MemberPanel", FormMethod.Post))
-{
-    <table class="table table-hover">
+<!DOCTYPE html>
 
-        <tr>
-            <th>Mail Adresi: </th>
-            <td>@HttpContext.Current.User.Identity.Name</td>
-        </tr>
+<html>
 
-        <tr>
-            <th>Ad: </th>
-            <td>@Html.TextBoxFor(x => x.Name, new { @class = "form-control" })</td>
-        </tr>
+<head>
 
-        <tr>
-            <th>Soyad: </th>
-            <td>@Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })</td>
-        </tr>
+    <meta charset="utf-8">
 
-        <tr>
-            <th>Kullanıcı Adı: </th>
-            <td>@Html.TextBoxFor(x => x.Username, new { @class = "form-control" })</td>
-        </tr>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <tr>
-            <th>Şifre: </th>
-            <td>@Html.TextBoxFor(x => x.Password, new { @class = "form-control" })</td>
-        </tr>
+    <title>Kütüphane Admin Paneli</title>
+
+    <!-- Tell the browser to be responsive to screen width -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-        <tr>
-            <th>Fotoğraf: </th>
-            <td>@Html.TextBoxFor(x => x.Photo, new { @class = "form-control" })</td>
-        </tr>
 
-        <tr>
-            <th>Öğrenim Bilgisi: </th>
-            <td>@Html.TextBoxFor(x => x.School, new { @class = "form-control" })</td>
-        </tr>
+    <!-- Font Awesome -->
 
-        <tr>
-            <td>
-                <button class="btn btn-warning">Güncelle</button>
-            </td>
-        </tr>
-    </table>
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
 
-}
+    <!-- Ionicons -->
+
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+    <!-- Theme style -->
+
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+
+    <!-- Google Font: Source Sans Pro -->
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+    <!-- Navbar -->
+    <!-- Content Wrapper. Contains page content -->
+    <!-- Content Header (Page header) -->
+
+    <section class="content-header">
+
+        <div class="container-fluid">
+
+            <div class="row mb-2">
+
+                <div class="col-sm-6">
+
+                    <h1>Profilim</h1>
+
+                </div>
+
+            </div>
+
+        </div><!-- /.container-fluid -->
+
+    </section>
+
+
+
+    <!-- Main content -->
+
+    <section class="content">
+
+        <div class="container-fluid">
+
+            <div class="row">
+
+                <div class="col-md-3">
+
+
+
+                    <!-- Profile Image -->
+
+                    <div class="card card-primary card-outline">
+
+                        <div class="card-body box-profile">
+
+                            <div class="text-center">
+
+                                <img class="profile-user-img img-fluid img-circle"
+                                     src="@ViewBag.photo"
+                                     alt="User profile picture">
+
+                            </div>
+
+
+
+                            <h3 class="profile-username text-center">@ViewBag.name</h3>
+
+
+
+                            <p class="text-muted text-center">Kütüphane Üyesi</p>
+
+
+
+                            <ul class="list-group list-group-unbordered mb-3">
+
+                                <li class="list-group-item">
+
+                                    <b>Okuduğum Kitap Sayısı: </b> <a class="float-right">@ViewBag.book</a>
+
+                                </li>
+
+                                <li class="list-group-item">
+
+                                    <b>Gelen Mesaj Sayısı: </b> <a class="float-right">@ViewBag.message</a>
+
+                                </li>
+
+                                <li class="list-group-item">
+
+                                    <b>Duyuru Sayısı: </b> <a class="float-right">@ViewBag.notice</a>
+
+                                </li>
+
+                            </ul>
+
+
+
+                            <a href="#" class="btn btn-primary btn-block"><b>Gelen Kutusu</b></a>
+
+                        </div>
+
+                        <!-- /.card-body -->
+
+                    </div>
+
+                    <!-- /.card -->
+                    <!-- About Me Box -->
+
+                    <div class="card card-primary">
+
+                        <div class="card-header">
+
+                            <h3 class="card-title">Hakkımda</h3>
+
+                        </div>
+
+                        <!-- /.card-header -->
+
+                        <div class="card-body">
+
+                            <strong><i class="fas fa-book mr-1"></i> Öğrenim Bilgisi</strong>
+
+                            <p class="text-muted">
+
+                                @ViewBag.school
+
+                            </p>
+
+                            <hr>
+
+                            <strong><i class="fas fa-map-marker-alt mr-1"></i> Telefon</strong>
+
+                            <p class="text-muted">@ViewBag.phone</p>
+
+                            <hr>
+
+                            <strong><i class="fas fa-pencil-alt mr-1"></i> Kullanıcı Adı</strong>
+
+                            <p class="text-muted">@ViewBag.username</p>
+                            <hr>
+
+                            <strong><i class="far fa-file-alt mr-1"></i> Mail Adresi</strong>
+
+                            <p class="text-muted">@ViewBag.mail</p>
+
+                        </div>
+
+                        <!-- /.card-body -->
+
+                    </div>
+
+                    <!-- /.card -->
+
+                </div>
+
+                <!-- /.col -->
+
+                <div class="col-md-9">
+
+                    <div class="card">
+
+                        <div class="card-header p-2">
+
+                            <ul class="nav nav-pills">
+
+                                <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Duyurular</a></li>
+
+                                <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Ayarlar</a></li>
+
+                            </ul>
+
+                        </div><!-- /.card-header -->
+
+                        <div class="card-body">
+
+                            <div class="tab-content">
+                                <div class="active tab-pane" id="activity">
+                                    @Html.Action("PartialNotice", "MemberPanel")
+                                </div>
+
+                                <div class="tab-pane" id="settings">
+                                    @Html.Action("PartialSettings", "MemberPanel")
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- /.row -->
+
+        </div><!-- /.container-fluid -->
+
+    </section>
+
+    <!-- /.content -->
+    <!-- /.content-wrapper -->
+
+    <footer class="main-footer">
+
+        <div class="float-right d-none d-sm-block">
+
+            <b>Version</b> 3.0.4
+
+        </div>
+
+        <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
+
+        reserved.
+
+    </footer>
+
+
+
+    <!-- Control Sidebar -->
+
+    <aside class="control-sidebar control-sidebar-dark">
+
+        <!-- Control sidebar content goes here -->
+
+    </aside>
+
+    <!-- /.control-sidebar -->
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap 4 -->
+
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AdminLTE App -->
+
+    <script src="../../dist/js/adminlte.min.js"></script>
+
+    <!-- AdminLTE for demo purposes -->
+
+    <script src="../../dist/js/demo.js"></script>
+
+</body>
+
+</html>

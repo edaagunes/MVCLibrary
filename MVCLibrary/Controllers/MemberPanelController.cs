@@ -15,8 +15,19 @@ namespace MVCLibrary.Controllers
         public ActionResult Index()
         {
             var memberMail = (string)Session["Mail"];
-            var values = context.Member.FirstOrDefault(x => x.Mail == memberMail);
-            return View(values);
+            //var values = context.Member.FirstOrDefault(x => x.Mail == memberMail);
+            
+            ViewBag.name=context.Member.Where(x=>x.Mail == memberMail).Select(x=>x.Name+" "+x.Surname).FirstOrDefault();
+            ViewBag.photo=context.Member.Where(x=>x.Mail == memberMail).Select(x=>x.Photo).FirstOrDefault();
+            ViewBag.username=context.Member.Where(x=>x.Mail == memberMail).Select(x=>x.Username).FirstOrDefault();
+            ViewBag.school=context.Member.Where(x=>x.Mail == memberMail).Select(x=>x.School).FirstOrDefault();
+            ViewBag.phone=context.Member.Where(x=>x.Mail == memberMail).Select(x=>x.Phone).FirstOrDefault();
+            ViewBag.mail=context.Member.Where(x=>x.Mail == memberMail).Select(x=>x.Mail).FirstOrDefault();
+            var memberId=context.Member.Where(x=>x.Mail == memberMail).Select(x=>x.MemberID).FirstOrDefault();
+            ViewBag.book = context.Sale.Where(x => x.Member == memberId).Count();
+            ViewBag.message = context.Message.Where(x => x.Receiver == memberMail).Count();
+            ViewBag.notice = context.Announcement.Count();
+            return View();
         }
         [HttpPost]
         public ActionResult MemberProfile(Member p)
@@ -48,6 +59,18 @@ namespace MVCLibrary.Controllers
             return View(noticeList);
         }
 
+        public PartialViewResult PartialNotice()
+        {
+            var values = context.Announcement.ToList();
+            return PartialView(values);
+        }
 
+        public PartialViewResult PartialSettings()
+        {
+            var mail = (string)Session["Mail"];
+            var id=context.Member.Where(x=>x.Mail==mail).Select(x=>x.MemberID).FirstOrDefault();
+            var member = context.Member.Find(id);
+            return PartialView("PartialSettings",member);
+        }
     }
 }
