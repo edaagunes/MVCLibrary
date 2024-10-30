@@ -3,7 +3,7 @@
 ## Genel Bakış
 :books: Bu proje bir kütüphanenin Vitrin, Admin ve Kullanıcı olmak üzere 3 temel panelinden oluşmaktadır. Kullanıcıların kütüphaneden ödünç kitap alabileceği,kullanıcılar arası mesajlaşma özelliği, kütüphanenin yayınladığı duyuruları görebileceği bir kullanıcı paneli hazırlandı. Admin tarafında kütüphaneye ait kitapların yönetimi, ödünç kitap işlemleri gerçekleştirildi. Vitrin kısmında admin tarafından belirlenen kitapların listelenmesi ve kullanıcıların mesaj gönderebileceği bir iletişim paneli kullanıldı. 
 
-### 🏛️ [Vitrin](#%EF%B8%8F-vitrin)
+### 🏛️ [Vitrin](#%EF%B8%8F--vitrin)
 
  📚 **Kitaplarımız:** Admin tarafından belirlenen kitaplar listelenir.
  
@@ -19,7 +19,7 @@
 ![4](https://github.com/user-attachments/assets/a7715c42-e166-4ca8-8d7c-4cf37114622e)
 ![3](https://github.com/user-attachments/assets/29cebef2-a1d4-4ce1-8d9c-1cc4834f0e4f)
 
-### 👤 [Kullanıcı Paneli](#-kullanıcı-paneli)
+### 👤 [Kullanıcı Paneli](#-kullanıcı-paneli-1)
 
  🔖 **Profil:** Kullanıcıyı admin tarafından yayınlanan Duyurular ve bilgilerini güncelleyebilmesi için Ayarlar kısmı karşılar.
  
@@ -33,7 +33,7 @@
  
  🚪 **Çıkış Yap:** Kullanıcının sistemden çıkış yapması sağlanır.
 
-### 🛠️ [Admin Paneli](%EF%B8%8F-admin-paneli)
+### 🛠️ [Admin Paneli](#%EF%B8%8F-admin-paneli-1)
 
  🗂️ **Kategoriler:** Kitapların kategorileri listelenir.
  
